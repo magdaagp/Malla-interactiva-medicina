@@ -19,6 +19,44 @@ const ramos = [
   { nombre: "Unidad de investigación I", creditos: 2, requisitos: [] },
   { nombre: "Semiología I", creditos: 6, requisitos: ["Introducción a la profesión médica", "Medicina, persona y sociedad"] },
   { nombre: "Bioética", creditos: 3, requisitos: [] }
-  // ... (seguiré completando con el resto de los ramos)
 ];
 
+const mallaDiv = document.querySelector(".malla");
+
+function construirMalla() {
+  mallaDiv.innerHTML = "";
+  ramos.forEach((ramo, index) => {
+    const div = document.createElement("div");
+    div.className = "ramo";
+    div.innerText = `${ramo.nombre}\n(${ramo.creditos} cr.)`;
+    div.dataset.nombre = ramo.nombre;
+    div.onclick = () => marcarDependencias(ramo.nombre);
+    mallaDiv.appendChild(div);
+  });
+}
+
+function marcarDependencias(nombreRamo) {
+  const ramosHTML = document.querySelectorAll(".ramo");
+  ramosHTML.forEach(div => div.classList.remove("seleccionado", "dependiente"));
+
+  const seleccionados = new Set();
+  seleccionados.add(nombreRamo);
+
+  // buscar dependientes
+  ramos.forEach(ramo => {
+    if (ramo.requisitos.includes(nombreRamo)) {
+      seleccionados.add(ramo.nombre);
+    }
+  });
+
+  ramosHTML.forEach(div => {
+    const nombre = div.dataset.nombre;
+    if (nombre === nombreRamo) {
+      div.classList.add("seleccionado");
+    } else if (seleccionados.has(nombre)) {
+      div.classList.add("dependiente");
+    }
+  });
+}
+
+construirMalla();
