@@ -15,8 +15,8 @@ h1 {
   display: grid;
   grid-template-columns: repeat(14, minmax(120px, 1fr));
   gap: 0.5rem;
-  justify-content: start; /* muestra desde el 1° semestre */
-  overflow-x: auto;       /* habilita scroll horizontal si es necesario */
+  justify-content: start;
+  overflow-x: auto;
   padding-bottom: 1rem;
 }
 
@@ -24,7 +24,8 @@ h1 {
   background-color: #cce5ff;
   border: 1px solid #99cfff;
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 80, 0.05);
 }
 
 .semestre h2 {
@@ -34,26 +35,28 @@ h1 {
 }
 
 .ramo {
-  background-color: #f8fbff;
-  border: 2px solid #3399ff;
-  padding: 0.4rem;
-  margin: 0.3rem 0;
-  border-radius: 6px;
+  background-color: #dff3ff;
+  border: 2px solid #66b2ff;
+  padding: 0.5rem;
+  margin: 0.4rem 0;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   text-align: center;
   font-size: 0.8rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .ramo:hover {
-  background-color: #d0ecff;
+  background-color: #cce8ff;
 }
 
 .seleccionado {
-  background-color: #3399ff !important;
+  background: linear-gradient(135deg, #2a78d1, #0072ff);
   color: white;
   font-weight: bold;
   text-decoration: line-through;
+  box-shadow: 0 0 8px rgba(0, 114, 255, 0.5);
 }
 
 .bloqueado {
