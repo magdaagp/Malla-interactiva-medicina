@@ -356,7 +356,7 @@ const ramos = [
   {
     nombre: "Electivo profesional II",
     creditos: 3,
-    requisitos: [],
+    requisitos: ["Electivo profesional I"],
     semestre: 9
   },
   {
@@ -392,7 +392,7 @@ const ramos = [
   {
     nombre: "Electivo profesional III",
     creditos: 3,
-    requisitos: [],
+    requisitos: ["Electivo profesional II"],
     semestre: 10
   },
   {
