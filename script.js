@@ -556,7 +556,8 @@ const contenedor = document.getElementById("contenedor-malla");
 let completados = new Set();
 
 function construirMalla() {
-  for (let i = 1; i <= 14; i++) {
+  // Semestres 1 al 10
+  for (let i = 1; i <= 10; i++) {
     const columna = document.createElement("div");
     columna.className = "semestre";
     columna.innerHTML = `<h2>${i}° semestre</h2>`;
@@ -570,34 +571,34 @@ function construirMalla() {
     });
     contenedor.appendChild(columna);
   }
-  actualizarEstado();
-}
 
-function toggleRamo(nombre) {
-  if (completados.has(nombre)) {
-    completados.delete(nombre);
-  } else {
-    completados.add(nombre);
-  }
-  actualizarEstado();
-}
-
-function puedeTomarse(ramo) {
-  return ramo.requisitos.every(req => completados.has(req));
-}
-
-function actualizarEstado() {
-  document.querySelectorAll(".ramo").forEach(div => {
-    const nombre = div.dataset.nombre;
-    const obj = ramos.find(r => r.nombre === nombre);
-    div.classList.remove("seleccionado", "bloqueado");
-
-    if (completados.has(nombre)) {
-      div.classList.add("seleccionado");
-    } else if (!puedeTomarse(obj)) {
-      div.classList.add("bloqueado");
-    }
+  // Sexto año
+  const sexto = document.createElement("div");
+  sexto.className = "semestre";
+  sexto.innerHTML = `<h2>Sexto año</h2>`;
+  ramosSexto.forEach(ramo => {
+    const div = document.createElement("div");
+    div.className = "ramo";
+    div.textContent = `${ramo.nombre}`;
+    div.dataset.nombre = ramo.nombre;
+    div.onclick = () => toggleRamo(ramo.nombre);
+    contenedor.appendChild(sexto);
+    sexto.appendChild(div);
   });
-}
 
-construirMalla();
+  // Séptimo año
+  const septimo = document.createElement("div");
+  septimo.className = "semestre";
+  septimo.innerHTML = `<h2>Séptimo año</h2>`;
+  ramosSeptimo.forEach(ramo => {
+    const div = document.createElement("div");
+    div.className = "ramo";
+    div.textContent = `${ramo.nombre}`;
+    div.dataset.nombre = ramo.nombre;
+    div.onclick = () => toggleRamo(ramo.nombre);
+    contenedor.appendChild(septimo);
+    septimo.appendChild(div);
+  });
+
+  actualizarEstado();
+}
