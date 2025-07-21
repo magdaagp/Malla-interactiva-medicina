@@ -1,49 +1,24 @@
 const ramos = [
-  {
-    nombre: "Anatomía I",
-    creditos: 6,
-    requisitos: "Ninguno"
-  },
-  {
-    nombre: "Fisiología I",
-    creditos: 8,
-    requisitos: "Anatomía II, Biología celular y molecular, Física"
-  },
-  {
-    nombre: "Bioquímica",
-    creditos: 4,
-    requisitos: "Biología celular y molecular"
-  },
-  {
-    nombre: "Ginecología - Obstetricia",
-    creditos: 10,
-    requisitos: "Cirugía"
-  },
-  {
-    nombre: "Psiquiatría infantil",
-    creditos: 2,
-    requisitos: "Medicina general familiar II"
-  }
-  // ← Aquí agregaremos todos los demás ramos después
+  { nombre: "Matemáticas", creditos: 3, requisitos: [] },
+  { nombre: "Química", creditos: 6, requisitos: [] },
+  { nombre: "Anatomía I", creditos: 6, requisitos: [] },
+  { nombre: "Introducción a la profesión médica", creditos: 6, requisitos: [] },
+  { nombre: "Medicina y sociedad", creditos: 4, requisitos: [] },
+  { nombre: "Formación general I", creditos: 2, requisitos: [] },
+  { nombre: "Inglés I", creditos: 3, requisitos: [] },
+  { nombre: "Física", creditos: 5, requisitos: [] },
+  { nombre: "Biología celular y molecular", creditos: 6, requisitos: [] },
+  { nombre: "Anatomía II", creditos: 4, requisitos: ["Anatomía I"] },
+  { nombre: "Histología y embriología", creditos: 6, requisitos: [] },
+  { nombre: "Medicina, persona y sociedad", creditos: 4, requisitos: ["Medicina y sociedad"] },
+  { nombre: "Introducción a la salud pública", creditos: 2, requisitos: ["Introducción a la profesión médica"] },
+  { nombre: "Inglés II", creditos: 3, requisitos: [] },
+  { nombre: "Fisiología I", creditos: 8, requisitos: ["Anatomía II", "Biología celular y molecular", "Física"] },
+  { nombre: "Bioquímica", creditos: 4, requisitos: ["Biología celular y molecular"] },
+  { nombre: "Genética", creditos: 5, requisitos: ["Biología celular y molecular"] },
+  { nombre: "Unidad de investigación I", creditos: 2, requisitos: [] },
+  { nombre: "Semiología I", creditos: 6, requisitos: ["Introducción a la profesión médica", "Medicina, persona y sociedad"] },
+  { nombre: "Bioética", creditos: 3, requisitos: [] }
+  // ... (seguiré completando con el resto de los ramos)
 ];
 
-const mallaDiv = document.querySelector(".malla");
-
-ramos.forEach(ramo => {
-  const div = document.createElement("div");
-  div.className = "ramo";
-  div.innerText = `${ramo.nombre} (${ramo.creditos} cr.)`;
-  div.onclick = () => mostrarModal(ramo);
-  mallaDiv.appendChild(div);
-});
-
-function mostrarModal(ramo) {
-  document.getElementById("modal-nombre").innerText = ramo.nombre;
-  document.getElementById("modal-creditos").innerText = ramo.creditos;
-  document.getElementById("modal-requisitos").innerText = ramo.requisitos;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function cerrarModal() {
-  document.getElementById("modal").style.display = "none";
-}
