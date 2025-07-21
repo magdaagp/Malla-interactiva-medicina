@@ -15,7 +15,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(14, minmax(120px, 1fr));
   gap: 0.5rem;
-  justify-content: center;
+  justify-content: start; /* muestra desde el 1° semestre */
+  overflow-x: auto;       /* habilita scroll horizontal si es necesario */
+  padding-bottom: 1rem;
 }
 
 .semestre {
