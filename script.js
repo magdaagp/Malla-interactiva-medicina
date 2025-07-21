@@ -164,7 +164,7 @@ const ramos = [
   {
     nombre: "Formación general II",
     creditos: 2,
-    requisitos: [],
+    requisitos: ["Formación general I"],
     semestre: 4
   },
   {
@@ -284,7 +284,7 @@ const ramos = [
   {
     nombre: "Formación general III",
     creditos: 2,
-    requisitos: [],
+    requisitos: ["Formación general II"],
     semestre: 7
   },
   {
@@ -398,7 +398,7 @@ const ramos = [
   {
     nombre: "Formación general IV",
     creditos: 2,
-    requisitos: [],
+    requisitos: ["Formación general III"],
     semestre: 10
   },
   {
