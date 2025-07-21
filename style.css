@@ -36,7 +36,7 @@ h1 {
 
 .ramo {
   background-color: #0077b6;
-  color: #e3f6fd; /* azul pastel clarito */
+  color: #e3f6fd;
   border: 2px solid #005f99;
   padding: 0.5rem;
   margin: 0.4rem 0;
@@ -61,12 +61,14 @@ h1 {
   font-weight: bold;
   font-style: italic;
   text-decoration: line-through;
-  border: 2px solid #00b4d8;
-  box-shadow: 0 0 12px rgba(0, 180, 216, 0.7); /* brillo alrededor del rectángulo */
+  border: 2px solid #03045e; /* mismo color que el fondo del ramo */
+  box-shadow: 0 0 12px rgba(0, 0, 60, 0.6); /* brillito más oscuro */
 }
 
 .bloqueado {
-  border-style: dashed !important;
-  opacity: 0.6;
+  background-color: #b5e5f0; /* color más claro para diferenciar */
+  color: #6b9bb5;
+  border: 2px dashed #a4d8e9 !important;
   cursor: not-allowed;
+  box-shadow: none;
 }
