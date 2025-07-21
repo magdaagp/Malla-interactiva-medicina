@@ -13,7 +13,7 @@ h1 {
 
 #contenedor-malla {
   display: grid;
-  grid-template-columns: repeat(12, minmax(150px, 1fr)); /* Ajustado: 12 columnas visibles más anchas */
+  grid-template-columns: repeat(12, minmax(150px, 1fr));
   gap: 0.5rem;
   justify-content: start;
   overflow-x: auto;
@@ -35,8 +35,9 @@ h1 {
 }
 
 .ramo {
-  background-color: #84b6f4;
-  border: 2px solid #5c9de6;
+  background-color: #4c7dd9;
+  color: #1e3d74;
+  border: 2px solid #3a68c2;
   padding: 0.5rem;
   margin: 0.4rem 0;
   border-radius: 12px;
@@ -48,17 +49,20 @@ h1 {
 }
 
 .ramo:hover {
-  background-color: #90a4ec;
+  background-color: #2454ad;
+  color: #162c60;
   transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(36, 84, 173, 0.4);
 }
 
 .seleccionado {
-  background-color: #365fd0;
-  color: white;
+  background-color: #0d0652;
+  color: #b2e5f7;
   font-weight: bold;
+  font-style: italic;  /* cursiva */
   text-decoration: line-through;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  border: 2px solid #2e1b91;  /* borde más oscuro */
+  box-shadow: 0 0 10px rgba(13, 6, 82, 0.5);
 }
 
 .bloqueado {
