@@ -1,19 +1,19 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #cceeff;
+  background-color: #caf0f8;
   padding: 2rem;
   margin: 0;
 }
 
 h1 {
   text-align: center;
-  color: #003366;
+  color: #03045e;
   margin-bottom: 2rem;
 }
 
 #contenedor-malla {
   display: grid;
-  grid-template-columns: repeat(12, minmax(150px, 1fr));
+  grid-template-columns: repeat(12, minmax(170px, 1fr)); /* más ancho */
   gap: 0.5rem;
   justify-content: start;
   overflow-x: auto;
@@ -21,8 +21,8 @@ h1 {
 }
 
 .semestre {
-  background-color: #b3dbff;
-  border: 1px solid #99cfff;
+  background-color: #90e0ef;
+  border: 1px solid #00b4d8;
   padding: 0.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 80, 0.05);
@@ -30,14 +30,14 @@ h1 {
 
 .semestre h2 {
   text-align: center;
-  color: #003366;
+  color: #0077b6;
   font-size: 0.9rem;
 }
 
 .ramo {
-  background-color: #4c7dd9;
-  color: #1e3d74;
-  border: 2px solid #3a68c2;
+  background-color: #0077b6;
+  color: #e3f6fd; /* azul pastel clarito */
+  border: 2px solid #005f99;
   padding: 0.5rem;
   margin: 0.4rem 0;
   border-radius: 12px;
@@ -49,20 +49,20 @@ h1 {
 }
 
 .ramo:hover {
-  background-color: #2454ad;
-  color: #162c60;
+  background-color: #00b4d8;
+  color: #e3fbff;
   transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(36, 84, 173, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
 }
 
 .seleccionado {
-  background-color: #0d0652;
-  color: #b2e5f7;
+  background-color: #03045e;
+  color: #caf0f8;
   font-weight: bold;
-  font-style: italic;  /* cursiva */
+  font-style: italic;
   text-decoration: line-through;
-  border: 2px solid #2e1b91;  /* borde más oscuro */
-  box-shadow: 0 0 10px rgba(13, 6, 82, 0.5);
+  border: 2px solid #00b4d8;
+  box-shadow: 0 0 12px rgba(0, 180, 216, 0.7); /* brillo alrededor del rectángulo */
 }
 
 .bloqueado {
