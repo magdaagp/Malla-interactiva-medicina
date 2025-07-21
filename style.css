@@ -32,7 +32,7 @@ h1 {
 }
 
 .ramo {
-  background-color: #ffffff;
+  background-color: #f8fbff;
   border: 2px solid #3399ff;
   padding: 0.4rem;
   margin: 0.3rem 0;
@@ -51,10 +51,7 @@ h1 {
   background-color: #3399ff !important;
   color: white;
   font-weight: bold;
-}
-
-.dependiente {
-  background-color: #b3d9ff !important;
+  text-decoration: line-through;
 }
 
 .bloqueado {
