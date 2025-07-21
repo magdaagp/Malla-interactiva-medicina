@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Malla Curricular Medicina</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Malla Interactiva 2025</h1>
-  <table id="malla">
-    <tr>
-      <th>Hora</th>
-      <th>Lunes</th>
-      <th>Martes</th>
-      <th>Miércoles</th>
-      <th>Jueves</th>
-      <th>Viernes</th>
-    </tr>
-    <tr>
-      <td>08:00</td>
-      <td onclick="verDetalle(this)">Fisiología</td>
-      <td onclick="verDetalle(this)">Libre</td>
-      <td onclick="verDetalle(this)">Genética</td>
-      <td onclick="verDetalle(this)">Fisiología</td>
-      <td onclick="verDetalle(this)">Histología</td>
-    </tr>
-  </table>
+  <h1>Malla Curricular de Medicina - UChile</h1>
+
+  <div class="malla">
+    <!-- Aquí irán los ramos (los agregaré yo en la siguiente parte) -->
+  </div>
+
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span onclick="cerrarModal()" class="cerrar">&times;</span>
+      <h2 id="modal-nombre"></h2>
+      <p><strong>Créditos:</strong> <span id="modal-creditos"></span></p>
+      <p><strong>Requisitos:</strong> <span id="modal-requisitos"></span></p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
