@@ -554,6 +554,107 @@ const ramos = [
 ];
 const contenedor = document.getElementById("contenedor-malla");
 let completados = new Set();
+const ramosSexto = [
+  {
+    nombre: "Medicina interna",
+    creditos: 26,
+    requisitos: ["Casos integradores II", "Módulo integrado interdisciplinario multiprofesional II"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Pediatría",
+    creditos: 26,
+    requisitos: ["Casos integradores II", "Módulo integrado interdisciplinario multiprofesional II"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Urología",
+    creditos: 3,
+    requisitos: ["Medicina interna"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Oftalmología",
+    creditos: 3,
+    requisitos: ["Medicina interna"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Otorrinolaringología",
+    creditos: 3,
+    requisitos: ["Medicina interna"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Dermatología",
+    creditos: 3,
+    requisitos: ["Medicina interna"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Traumatología",
+    creditos: 6,
+    requisitos: ["Medicina interna"],
+    anio: "Sexto año"
+  },
+  {
+    nombre: "Urgencias",
+    creditos: 6,
+    requisitos: ["Medicina interna"],
+    anio: "Sexto año"
+  }
+];
+
+const ramosSeptimo = [
+  {
+    nombre: "Cirugía (internado)",
+    creditos: 18,
+    requisitos: ["Medicina interna", "Pediatría"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Ginecología - Obstetricia (internado)",
+    creditos: 18,
+    requisitos: ["Medicina interna", "Pediatría"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Atención primaria urbana",
+    creditos: 6,
+    requisitos: ["Medicina interna", "Pediatría"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Atención primaria rural",
+    creditos: 6,
+    requisitos: ["Medicina interna", "Pediatría"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Neurología (internado)",
+    creditos: 6,
+    requisitos: ["Medicina interna"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Psiquiatría (internado)",
+    creditos: 6,
+    requisitos: ["Medicina interna"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Electivo I",
+    creditos: 6,
+    requisitos: ["Medicina interna"],
+    anio: "Séptimo año"
+  },
+  {
+    nombre: "Electivo II",
+    creditos: 6,
+    requisitos: ["Medicina interna"],
+    anio: "Séptimo año"
+  }
+];
 
 function construirMalla() {
   // Semestres 1 al 10
