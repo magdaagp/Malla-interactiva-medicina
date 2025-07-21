@@ -1,19 +1,19 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #cceeff; /* Fondo muy claro */
+  background-color: #cceeff;
   padding: 2rem;
   margin: 0;
 }
 
 h1 {
   text-align: center;
-  color: #080147;
+  color: #003366;
   margin-bottom: 2rem;
 }
 
 #contenedor-malla {
   display: grid;
-  grid-template-columns: repeat(12, minmax(120px, 1fr));
+  grid-template-columns: repeat(12, minmax(150px, 1fr)); /* Ajustado: 12 columnas visibles más anchas */
   gap: 0.5rem;
   justify-content: start;
   overflow-x: auto;
@@ -30,12 +30,12 @@ h1 {
 
 .semestre h2 {
   text-align: center;
-  color: #080147;
+  color: #003366;
   font-size: 0.9rem;
 }
 
 .ramo {
-  background-color: #84b6f4; /* Color del ramo disponible */
+  background-color: #84b6f4;
   border: 2px solid #5c9de6;
   padding: 0.5rem;
   margin: 0.4rem 0;
@@ -48,17 +48,17 @@ h1 {
 }
 
 .ramo:hover {
-  background-color: #90a4ec; /* Color al pasar el mouse */
-  transform: translateY(-4px); /* efecto nube que sube */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* sombra suave */
+  background-color: #90a4ec;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .seleccionado {
-  background-color: #365fd0; /* Azul profundo */
+  background-color: #365fd0;
   color: white;
   font-weight: bold;
   text-decoration: line-through;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15); /* sombra sutil */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
 }
 
 .bloqueado {
