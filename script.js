@@ -28,38 +28,38 @@ function construirMalla() {
       div.className = "ramo";
       div.textContent = `${ramo.nombre}`;
       div.dataset.nombre = ramo.nombre;
-      div.onclick = () => seleccionarRamo(ramo.nombre);
-      if (!puedeTomarse(ramo)) div.classList.add("bloqueado");
+      div.onclick = () => toggleRamo(ramo.nombre);
       columna.appendChild(div);
     });
     contenedor.appendChild(columna);
   }
+  actualizarEstado();
+}
+
+function toggleRamo(nombre) {
+  if (completados.has(nombre)) {
+    completados.delete(nombre);
+  } else {
+    completados.add(nombre);
+  }
+  actualizarEstado();
 }
 
 function puedeTomarse(ramo) {
   return ramo.requisitos.every(req => completados.has(req));
 }
 
-function seleccionarRamo(nombre) {
-  completados = new Set();
-  completados.add(nombre);
-
-  document.querySelectorAll(".ramo").forEach(d => {
-    d.classList.remove("seleccionado", "dependiente", "bloqueado");
-  });
-
-  ramos.forEach(r => {
-    if (r.requisitos.includes(nombre)) {
-      completados.add(r.nombre);
-    }
-  });
-
+function actualizarEstado() {
   document.querySelectorAll(".ramo").forEach(div => {
-    const n = div.dataset.nombre;
-    const obj = ramos.find(r => r.nombre === n);
-    if (n === nombre) div.classList.add("seleccionado");
-    else if (completados.has(n)) div.classList.add("dependiente");
-    else if (!puedeTomarse(obj)) div.classList.add("bloqueado");
+    const nombre = div.dataset.nombre;
+    const obj = ramos.find(r => r.nombre === nombre);
+    div.classList.remove("seleccionado", "bloqueado");
+
+    if (completados.has(nombre)) {
+      div.classList.add("seleccionado");
+    } else if (!puedeTomarse(obj)) {
+      div.classList.add("bloqueado");
+    }
   });
 }
 
