@@ -16,53 +16,51 @@ const ramos = [
 ];
 
 const contenedor = document.getElementById("contenedor-malla");
-const tooltip = document.getElementById("tooltip");
+let completados = new Set();
 
 function construirMalla() {
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 14; i++) {
     const columna = document.createElement("div");
     columna.className = "semestre";
-    columna.innerHTML = `<h2>Semestre ${i}</h2>`;
+    columna.innerHTML = `<h2>${i}° semestre</h2>`;
     ramos.filter(r => r.semestre === i).forEach(ramo => {
       const div = document.createElement("div");
       div.className = "ramo";
-      div.textContent = `${ramo.nombre}\n(${ramo.creditos} cr.)`;
+      div.textContent = `${ramo.nombre}`;
       div.dataset.nombre = ramo.nombre;
       div.onclick = () => seleccionarRamo(ramo.nombre);
-      div.onmouseenter = e => mostrarTooltip(e, ramo);
-      div.onmouseleave = () => tooltip.style.display = "none";
+      if (!puedeTomarse(ramo)) div.classList.add("bloqueado");
       columna.appendChild(div);
     });
     contenedor.appendChild(columna);
   }
 }
 
-function seleccionarRamo(nombre) {
-  document.querySelectorAll(".ramo").forEach(d => {
-    d.classList.remove("seleccionado", "dependiente");
-  });
+function puedeTomarse(ramo) {
+  return ramo.requisitos.every(req => completados.has(req));
+}
 
-  const seleccionados = new Set();
-  seleccionados.add(nombre);
+function seleccionarRamo(nombre) {
+  completados = new Set();
+  completados.add(nombre);
+
+  document.querySelectorAll(".ramo").forEach(d => {
+    d.classList.remove("seleccionado", "dependiente", "bloqueado");
+  });
 
   ramos.forEach(r => {
     if (r.requisitos.includes(nombre)) {
-      seleccionados.add(r.nombre);
+      completados.add(r.nombre);
     }
   });
 
   document.querySelectorAll(".ramo").forEach(div => {
     const n = div.dataset.nombre;
+    const obj = ramos.find(r => r.nombre === n);
     if (n === nombre) div.classList.add("seleccionado");
-    else if (seleccionados.has(n)) div.classList.add("dependiente");
+    else if (completados.has(n)) div.classList.add("dependiente");
+    else if (!puedeTomarse(obj)) div.classList.add("bloqueado");
   });
-}
-
-function mostrarTooltip(e, ramo) {
-  tooltip.innerHTML = `<strong>${ramo.nombre}</strong><br>Créditos: ${ramo.creditos}<br>Requisitos: ${ramo.requisitos.length ? ramo.requisitos.join(", ") : "Ninguno"}`;
-  tooltip.style.left = e.pageX + 10 + "px";
-  tooltip.style.top = e.pageY + 10 + "px";
-  tooltip.style.display = "block";
 }
 
 construirMalla();
