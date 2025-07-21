@@ -1,19 +1,19 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #eef7fb;
+  background-color: #cceeff; /* Fondo muy claro */
   padding: 2rem;
   margin: 0;
 }
 
 h1 {
   text-align: center;
-  color: #004080;
+  color: #003366;
   margin-bottom: 2rem;
 }
 
 #contenedor-malla {
   display: grid;
-  grid-template-columns: repeat(14, minmax(120px, 1fr));
+  grid-template-columns: repeat(12, minmax(120px, 1fr));
   gap: 0.5rem;
   justify-content: start;
   overflow-x: auto;
@@ -21,7 +21,7 @@ h1 {
 }
 
 .semestre {
-  background-color: #cce5ff;
+  background-color: #b3dbff;
   border: 1px solid #99cfff;
   padding: 0.5rem;
   border-radius: 12px;
@@ -35,8 +35,8 @@ h1 {
 }
 
 .ramo {
-  background-color: #dff3ff;
-  border: 2px solid #66b2ff;
+  background-color: #84b6f4; /* Color del ramo disponible */
+  border: 2px solid #5c9de6;
   padding: 0.5rem;
   margin: 0.4rem 0;
   border-radius: 12px;
@@ -44,19 +44,21 @@ h1 {
   transition: all 0.2s ease;
   text-align: center;
   font-size: 0.8rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .ramo:hover {
-  background-color: #cce8ff;
+  background-color: #90a4ec; /* Color al pasar el mouse */
+  transform: translateY(-4px); /* efecto nube que sube */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* sombra suave */
 }
 
 .seleccionado {
-  background: linear-gradient(135deg, #2a78d1, #0072ff);
+  background-color: #365fd0; /* Azul profundo */
   color: white;
   font-weight: bold;
   text-decoration: line-through;
-  box-shadow: 0 0 8px rgba(0, 114, 255, 0.5);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15); /* sombra sutil */
 }
 
 .bloqueado {
