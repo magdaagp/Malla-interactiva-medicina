@@ -582,9 +582,9 @@ function construirMalla() {
     div.textContent = `${ramo.nombre}`;
     div.dataset.nombre = ramo.nombre;
     div.onclick = () => toggleRamo(ramo.nombre);
-    contenedor.appendChild(sexto);
     sexto.appendChild(div);
   });
+  contenedor.appendChild(sexto);
 
   // Séptimo año
   const septimo = document.createElement("div");
@@ -596,9 +596,42 @@ function construirMalla() {
     div.textContent = `${ramo.nombre}`;
     div.dataset.nombre = ramo.nombre;
     div.onclick = () => toggleRamo(ramo.nombre);
-    contenedor.appendChild(septimo);
     septimo.appendChild(div);
   });
+  contenedor.appendChild(septimo);
 
   actualizarEstado();
 }
+
+function toggleRamo(nombre) {
+  if (completados.has(nombre)) {
+    completados.delete(nombre);
+  } else {
+    completados.add(nombre);
+  }
+  actualizarEstado();
+}
+
+function puedeTomarse(ramo) {
+  return ramo.requisitos.every(req => completados.has(req));
+}
+
+function actualizarEstado() {
+  document.querySelectorAll(".ramo").forEach(div => {
+    const nombre = div.dataset.nombre;
+    const obj =
+      ramos.find(r => r.nombre === nombre) ||
+      ramosSexto.find(r => r.nombre === nombre) ||
+      ramosSeptimo.find(r => r.nombre === nombre);
+
+    div.classList.remove("seleccionado", "bloqueado");
+
+    if (completados.has(nombre)) {
+      div.classList.add("seleccionado");
+    } else if (!puedeTomarse(obj)) {
+      div.classList.add("bloqueado");
+    }
+  });
+}
+
+construirMalla();
