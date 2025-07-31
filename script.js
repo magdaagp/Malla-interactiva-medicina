@@ -710,6 +710,7 @@ function toggleRamo(nombre) {
   } else {
     completados.add(nombre);
   }
+  guardarEstado(); // 🔹 Guarda el estado al hacer clic
   actualizarEstado();
 }
 
@@ -734,5 +735,17 @@ function actualizarEstado() {
     }
   });
 }
+function guardarEstado() {
+  localStorage.setItem("ramosSeleccionados", JSON.stringify([...completados]));
+}
 
+function cargarEstado() {
+  const guardados = JSON.parse(localStorage.getItem("ramosSeleccionados"));
+  if (guardados) {
+    completados = new Set(guardados);
+  }
+}
+
+cargarEstado();  // 🔹 Carga lo guardado antes de construir
 construirMalla();
+
